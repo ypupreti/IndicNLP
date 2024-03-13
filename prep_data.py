@@ -4,7 +4,7 @@ dataset = load_dataset(dataset_name, 'anudesh')
 #dataset['hi']
 
 
-text = dataset['hi'][0]['messages']
+"""text = dataset['hi'][0]['messages']
 que = text[0]['content']
 res = text[1]['content']
 #dt = f"<s>[INST] "+{que}+"[/INST] "{res}+" </s>"
@@ -13,4 +13,15 @@ formated_data = {}
 formated_data['text']=dt
 text_list = []
 text_list.append(formated_data)
-print(text_list)
+print(text_list)"""
+
+
+text_list = []
+for m in dataset['hi']:
+  #que = m[i]['messages'][0]['content']
+  que = m['messages'][0]['content']
+  res = m['messages'][1]['content']
+  dt = f"<s>[INST] {que} [/INST] {res} </s>"
+  formated_data = {}
+  formated_data['text']=dt
+  text_list.append(formated_data)
