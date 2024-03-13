@@ -25,3 +25,22 @@ for m in dataset['hi']:
   formated_data = {}
   formated_data['text']=dt
   text_list.append(formated_data)
+
+
+import csv
+# Define the filename for the CSV file
+csv_filename = 'formatted_data.csv'
+
+# Define the field names for the CSV file
+field_names = ['text']
+
+# Write the data to the CSV file
+with open(csv_filename, 'w', newline='', encoding='utf-8-sig') as csvfile:
+    writer = csv.DictWriter(csvfile, fieldnames=field_names)
+    
+    # Write the header
+    writer.writeheader()
+    
+    # Write the data
+    for item in text_list:
+        writer.writerow(item)
