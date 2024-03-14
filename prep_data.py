@@ -27,7 +27,7 @@ for m in dataset['hi']:
   text_list.append(formated_data)
 
 
-import csv
+"""import csv
 # Define the filename for the CSV file
 csv_filename = 'formatted_data.csv'
 
@@ -43,4 +43,15 @@ with open(csv_filename, 'w', newline='', encoding='utf-8-sig') as csvfile:
     
     # Write the data
     for item in text_list:
-        writer.writerow(item)
+        writer.writerow(item)"""
+
+
+import jsonlines
+
+# Define the filename for the JSONL file
+jsonl_filename = 'formatted_data.jsonl'
+
+# Write the data to the JSONL file
+with jsonlines.open(jsonl_filename, mode='w') as writer:
+    for item in text_list:
+        writer.write(item)
